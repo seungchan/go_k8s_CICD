@@ -25,7 +25,7 @@ docker image rm echo-hello:v1.0
 ```
 docker build -t echo-hello:multistage -f Dockerfile.multistage .
 ```
-Multistate build reduce image size signicantly. For more details https://github.com/GoogleContainerTools/distroless
+Multistate build reduces image size signicantly. For more details, refer [distroless](https://github.com/GoogleContainerTools/distroless).
 
 # Run docker image with host port map to container port
 ```
