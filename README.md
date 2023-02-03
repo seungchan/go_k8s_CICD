@@ -43,4 +43,4 @@ export AWS_SERVER=$AWS_ACCOUNT_ID.dkr.ecr.$(AWS_REGION).amazonaws.com
 export TAG_IMAGE=$AWS_SERVER/$IMAGE
 make docker-build-and-push
 ```
-You have to set AWS_PROFILE, AWS_REGION, AS_ACCOUNT_ID based on your AWS account information.
+Note: You have to set AWS_PROFILE, AWS_REGION, AS_ACCOUNT_ID based on your AWS account information.
