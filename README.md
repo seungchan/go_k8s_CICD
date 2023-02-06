@@ -31,7 +31,10 @@ Multistate build reduces image size signicantly. For more details, refer [distro
 ```
 docker run -p 8080:8080 <IMAGE_ID>
 ```
-
+You can access the app with curl command.
+```
+curl http://localhost:8080
+```
 
 # Build and Push Docker image to ECR with Makefile
 ```
