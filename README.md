@@ -39,8 +39,24 @@ export IMAGE=echo-hello
 export AWS_PROFILE=aws-devops
 export AWS_REGION=us-east-1
 export AWS_ACCOUNT_ID=999999999999
-export AWS_SERVER=$AWS_ACCOUNT_ID.dkr.ecr.$(AWS_REGION).amazonaws.com
+export AWS_SERVER=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 export TAG_IMAGE=$AWS_SERVER/$IMAGE
 make docker-build-and-push
 ```
 Note: You have to set AWS_PROFILE, AWS_REGION, AS_ACCOUNT_ID based on your AWS account information.
+
+# Deploy a docker image to EKS
+After provisioning EKS, use the following command to update ~/.kube/config with cluster details.
+```
+$ aws eks --region <enter-your-region> update-kubeconfig --name <cluster-name>
+```
+Deploy a docker image to EKS with the following command
+```
+$ kubectl apply -f deployment.yml
+$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+echo-hello-f4f8dbddf-8nrcg   1/1     Running   0          5s
+echo-hello-f4f8dbddf-mqgqw   1/1     Running   0          5s
+echo-hello-f4f8dbddf-xzqwg   1/1     Running   0          5s
+```
+

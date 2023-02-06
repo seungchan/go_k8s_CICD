@@ -1,2 +1,2 @@
-ecr_name = "demorepo"
+ecr_name = "echo-hello"
 tags = { "Env" : "Dev" }
