@@ -9,7 +9,9 @@ RUN go mod download
 COPY echo/*.go ./
 
 RUN go build -o /echo-hello
+RUN apk update && apk add bash
+COPY   ./run.sh /
+RUN chmod +x /run.sh
 
 EXPOSE 8080
-
-CMD [ "/echo-hello" ]
+ENTRYPOINT [ "/run.sh"]
